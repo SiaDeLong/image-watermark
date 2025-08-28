@@ -9,7 +9,7 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 WATERMARK_TEXT = "伊薇 Yvette"
 
 try:
-    font = ImageFont.truetype("arial.ttf", 24) 
+    font = ImageFont.truetype("NotoSansTC-Regular.ttf", 36) 
 except:
     font = ImageFont.load_default()
 
@@ -25,8 +25,8 @@ def add_watermark(image_path, output_path, text=WATERMARK_TEXT):
     text_height = bbox[3] - bbox[1]
 
     # Add spacing
-    x_step = text_width + 80
-    y_step = text_height + 80
+    x_step = text_width + 200
+    y_step = text_height + 100
 
     # Loop through rows
     row_index = 0
@@ -35,7 +35,7 @@ def add_watermark(image_path, output_path, text=WATERMARK_TEXT):
         x_offset = 250 if row_index % 2 else 0
 
         for x in range(0, width * 2, x_step):
-            draw.text((x + x_offset, y), text, font=font, fill=(255, 255, 255, 100))
+            draw.text((x + x_offset, y), text, font=font, fill=(255, 255, 255, 160))
 
         row_index += 1
 
