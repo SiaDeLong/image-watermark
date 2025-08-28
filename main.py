@@ -6,10 +6,10 @@ OUTPUT_DIR = "watermarked"
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-WATERMARK_TEXT = "Your Custom Watermark"
+WATERMARK_TEXT = "伊薇 Yvette"
 
 try:
-    font = ImageFont.truetype("arial.ttf", 20) 
+    font = ImageFont.truetype("arial.ttf", 24) 
 except:
     font = ImageFont.load_default()
 
@@ -32,7 +32,7 @@ def add_watermark(image_path, output_path, text=WATERMARK_TEXT):
     row_index = 0
     for y in range(0, height * 2, y_step):
         # Shift even rows slightly
-        x_offset = 200 if row_index % 2 else 0
+        x_offset = 250 if row_index % 2 else 0
 
         for x in range(0, width * 2, x_step):
             draw.text((x + x_offset, y), text, font=font, fill=(255, 255, 255, 100))
